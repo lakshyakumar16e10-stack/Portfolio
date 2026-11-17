@@ -1,0 +1,298 @@
+/* ==========================================================================
+   Base Reset & Dark Fluid Canvas
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #050608;
+  color: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   Fluid Stage & Ambient Glowing Orbs
+   ========================================================================== */
+.fluid-stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  perspective: 1200px;
+  pointer-events: none;
+}
+
+/* Common Orb Styles */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  will-change: transform, filter, opacity;
+  transform-style: preserve-3d;
+}
+
+/* Blue Orb (Diving in and out of depth) */
+.orb-blue {
+  width: 480px;
+  height: 480px;
+  top: 15%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(0, 119, 255, 0.95) 0%, rgba(0, 204, 255, 0.6) 45%, rgba(0, 40, 150, 0) 75%);
+  filter: blur(80px);
+  animation: fluidDriftBlue 22s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+/* Purple Orb (Fluid resistance and deep drift) */
+.orb-purple {
+  width: 540px;
+  height: 540px;
+  top: 40%;
+  right: 15%;
+  background: radial-gradient(circle, rgba(162, 0, 255, 0.95) 0%, rgba(212, 0, 255, 0.55) 45%, rgba(68, 0, 112, 0) 75%);
+  filter: blur(85px);
+  animation: fluidDriftPurple 28s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}
+
+/* Blended Orb (Adds richer central chromatic mixing) */
+.orb-blend {
+  width: 380px;
+  height: 380px;
+  bottom: 25%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(74, 58, 255, 0.8) 0%, rgba(138, 43, 226, 0.45) 50%, transparent 75%);
+  filter: blur(95px);
+  animation: fluidDepthPulse 18s ease-in-out infinite alternate;
+}
+
+/* Black Glass Overlay */
+.glass-canvas {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(8, 10, 15, 0.5) 0%,
+    rgba(5, 6, 8, 0.82) 100%
+  );
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+/* ==========================================================================
+   Fluid Physics Animations (Resistance, Bouncing, Depth Z-axis)
+   ========================================================================== */
+@keyframes fluidDriftBlue {
+  0% {
+    /* Surface closer to viewer (larger, sharper, intense) */
+    transform: translate3d(-15vw, -10vh, 120px) scale(1.25);
+    filter: blur(65px);
+    opacity: 0.95;
+  }
+  30% {
+    /* Drifting through viscous medium, curving diagonally */
+    transform: translate3d(22vw, 18vh, -40px) scale(0.95);
+    filter: blur(85px);
+    opacity: 0.75;
+  }
+  65% {
+    /* Bouncing gently off boundary and receding deep into background */
+    transform: translate3d(35vw, -12vh, -160px) scale(0.7);
+    filter: blur(115px);
+    opacity: 0.5;
+  }
+  85% {
+    /* Moving slowly back towards the midground */
+    transform: translate3d(10vw, 28vh, 30px) scale(1.05);
+    filter: blur(75px);
+    opacity: 0.85;
+  }
+  100% {
+    /* Fluid deceleration back to initial perimeter */
+    transform: translate3d(-18vw, 15vh, 140px) scale(1.3);
+    filter: blur(60px);
+    opacity: 1;
+  }
+}
+
+@keyframes fluidDriftPurple {
+  0% {
+    /* Deep in fluid background */
+    transform: translate3d(15vw, 15vh, -180px) scale(0.68);
+    filter: blur(120px);
+    opacity: 0.5;
+  }
+  25% {
+    /* Rising towards viewer, fluid drag */
+    transform: translate3d(-18vw, -20vh, 20px) scale(1.02);
+    filter: blur(80px);
+    opacity: 0.8;
+  }
+  55% {
+    /* Pushing close to viewer plane */
+    transform: translate3d(-32vw, 12vh, 150px) scale(1.32);
+    filter: blur(62px);
+    opacity: 0.95;
+  }
+  80% {
+    /* Gliding down and away with resistance */
+    transform: translate3d(8vw, 24vh, -60px) scale(0.88);
+    filter: blur(95px);
+    opacity: 0.65;
+  }
+  100% {
+    /* Soft bounce back */
+    transform: translate3d(24vw, -16vh, 90px) scale(1.18);
+    filter: blur(70px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes fluidDepthPulse {
+  0% {
+    transform: translate3d(0, 0, -100px) scale(0.8);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(-10vw, -14vh, 80px) scale(1.2);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(12vw, 10vh, -40px) scale(0.9);
+    opacity: 0.55;
+  }
+}
+
+/* ==========================================================================
+   Main Content Layout
+   ========================================================================== */
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 20px 120px 20px;
+}
+
+/* Dark Glassmorphism Hero Card */
+.glass-card {
+  background: rgba(18, 20, 29, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 48px 56px;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  max-width: 580px;
+  width: 100%;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  background: linear-gradient(180deg, #ffffff 30%, rgba(255, 255, 255, 0.65) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* ==========================================================================
+   Bottom Navigation Dock (Divider Line & Inactive Buttons Below)
+   ========================================================================== */
+.bottom-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Distinct Glowing White Line */
+.divider-line {
+  width: 100%;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.45),
+    0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Glass Shelf Sitting Directly Below the Line */
+.nav-shelf {
+  background: rgba(8, 9, 13, 0.75);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  padding: 16px 24px 22px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Buttons (Currently Inactive / Static Visual Placeholders) */
+.nav-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  pointer-events: none; /* Non-usable as requested */
+  user-select: none;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .glass-card {
+    padding: 36px 24px;
+  }
+  .nav-btn {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+}
