@@ -8,36 +8,494 @@
 </head>
 <body>
 
-  <!-- Background Fluid Environment -->
-  <div class="fluid-stage">
-    <!-- Depth blurred fluid orbs -->
+  <!-- Background Fluid Ambient Canvas -->
+  <div class="fluid-stage" aria-hidden="true">
     <div class="orb orb-blue"></div>
     <div class="orb orb-purple"></div>
     <div class="orb orb-blend"></div>
-    
-    <!-- Dark Frosted Glass Overlay -->
     <div class="glass-canvas"></div>
   </div>
 
-  <!-- Main Hero / Content Area (Preview Placeholder) -->
-  <main class="content-wrapper">
-    <div class="glass-card">
-      <span class="badge">Portfolio Concept</span>
-      <h1 class="title">Lakshya Kumar</h1>
-      <p class="subtitle">Interactive Fluid Glass Space</p>
+  <!-- Scroll-Snap Full-Page Container -->
+  <div class="snap-container">
+
+    <!-- ======================================================================
+         SECTION 1: INTRODUCTION
+         ====================================================================== -->
+    <section id="intro" class="snap-section section-intro">
+      <div class="section-inner">
+        <div class="glass-card intro-card">
+          <div class="status-pill">
+            <span class="status-dot"></span> Available for Opportunities
+          </div>
+          <h1 class="hero-name">Lakshya Kumar</h1>
+          <p class="hero-role">Full-Stack Developer &amp; Creative Technologist</p>
+          <p class="hero-desc">
+            Architecting fluid web experiences, performant distributed applications, 
+            and modern interactive systems with precision engineering.
+          </p>
+
+          <div class="intro-actions">
+            <a href="https://www.linkedin.com/in/lakshya-kumar-571213433/" target="_blank" rel="noopener noreferrer" class="cta-btn primary-cta">
+              Connect on LinkedIn ↗
+            </a>
+            <a href="#certifications" class="cta-btn secondary-cta">
+              Explore Certifications ↓
+            </a>
+          </div>
+
+          <!-- Subtle Scroll Hint -->
+          <div class="scroll-prompt">
+            <span class="prompt-text">Scroll to explore</span>
+            <div class="mouse-icon">
+              <span class="wheel"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2: CERTIFICATIONS
+         ====================================================================== -->
+    <section id="certifications" class="snap-section section-certifications">
+      <div class="section-inner cert-inner">
+        
+        <!-- Header & Top Featured Certificate -->
+        <div class="cert-header">
+          <span class="section-badge">Verified Credentials</span>
+          <h2 class="section-title">Professional Certifications</h2>
+          <p class="section-subtitle">Click any certificate to inspect in 80% zoom view</p>
+
+          <!-- Featured Top Certificate Anchor -->
+          <a href="#cert-zoom-1" class="top-cert-banner">
+            <div class="banner-badge">★ Featured Top Credential</div>
+            <div class="banner-content">
+              <strong>AWS Certified Solutions Architect – Associate</strong>
+              <span>Amazon Web Services • Click to inspect credential ↗</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 3 Rotating Bands Carousel (Center of Section) -->
+        <div class="cert-carousel-wrapper">
+          
+          <!-- Band Row 1: Moves Left -->
+          <div class="cert-band row-left">
+            <div class="band-track">
+              <!-- Cards Set A -->
+              <a href="#cert-zoom-1" class="cert-card">
+                <div class="cert-icon aws">AWS</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Solutions Architect</span>
+                  <span class="cert-issuer">Amazon Web Services</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-2" class="cert-card">
+                <div class="cert-icon gcp">GCP</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Professional Cloud Developer</span>
+                  <span class="cert-issuer">Google Cloud</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-3" class="cert-card">
+                <div class="cert-icon meta">Meta</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Full-Stack Engineer</span>
+                  <span class="cert-issuer">Meta Certified</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-4" class="cert-card">
+                <div class="cert-icon tf">TF</div>
+                <div class="cert-meta">
+                  <span class="cert-title">TensorFlow Developer</span>
+                  <span class="cert-issuer">DeepLearning.AI</span>
+                </div>
+              </a>
+              <!-- Duplicated for seamless continuous loop -->
+              <a href="#cert-zoom-1" class="cert-card">
+                <div class="cert-icon aws">AWS</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Solutions Architect</span>
+                  <span class="cert-issuer">Amazon Web Services</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-2" class="cert-card">
+                <div class="cert-icon gcp">GCP</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Professional Cloud Developer</span>
+                  <span class="cert-issuer">Google Cloud</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-3" class="cert-card">
+                <div class="cert-icon meta">Meta</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Full-Stack Engineer</span>
+                  <span class="cert-issuer">Meta Certified</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-4" class="cert-card">
+                <div class="cert-icon tf">TF</div>
+                <div class="cert-meta">
+                  <span class="cert-title">TensorFlow Developer</span>
+                  <span class="cert-issuer">DeepLearning.AI</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Band Row 2: Moves Right -->
+          <div class="cert-band row-right">
+            <div class="band-track">
+              <!-- Cards Set B -->
+              <a href="#cert-zoom-5" class="cert-card">
+                <div class="cert-icon github">GH</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Actions &amp; DevOps Certified</span>
+                  <span class="cert-issuer">GitHub</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-6" class="cert-card">
+                <div class="cert-icon cka">CKA</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Kubernetes Administrator</span>
+                  <span class="cert-issuer">Cloud Native Computing (CNCF)</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-7" class="cert-card">
+                <div class="cert-icon hashicorp">HC</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Terraform Associate</span>
+                  <span class="cert-issuer">HashiCorp</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-8" class="cert-card">
+                <div class="cert-icon harvard">CS</div>
+                <div class="cert-meta">
+                  <span class="cert-title">CS50x Computer Science</span>
+                  <span class="cert-issuer">Harvard University</span>
+                </div>
+              </a>
+              <!-- Duplicated for seamless loop -->
+              <a href="#cert-zoom-5" class="cert-card">
+                <div class="cert-icon github">GH</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Actions &amp; DevOps Certified</span>
+                  <span class="cert-issuer">GitHub</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-6" class="cert-card">
+                <div class="cert-icon cka">CKA</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Kubernetes Administrator</span>
+                  <span class="cert-issuer">Cloud Native Computing (CNCF)</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-7" class="cert-card">
+                <div class="cert-icon hashicorp">HC</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Terraform Associate</span>
+                  <span class="cert-issuer">HashiCorp</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-8" class="cert-card">
+                <div class="cert-icon harvard">CS</div>
+                <div class="cert-meta">
+                  <span class="cert-title">CS50x Computer Science</span>
+                  <span class="cert-issuer">Harvard University</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Band Row 3: Moves Left -->
+          <div class="cert-band row-left">
+            <div class="band-track">
+              <!-- Cards Set C -->
+              <a href="#cert-zoom-2" class="cert-card">
+                <div class="cert-icon gcp">GCP</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Cloud Architecture Specialist</span>
+                  <span class="cert-issuer">Google Cloud</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-3" class="cert-card">
+                <div class="cert-icon react">⚛</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Advanced Frontend React</span>
+                  <span class="cert-issuer">Meta Professional</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-1" class="cert-card">
+                <div class="cert-icon aws">AWS</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Developer Associate</span>
+                  <span class="cert-issuer">Amazon Web Services</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-5" class="cert-card">
+                <div class="cert-icon github">GH</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Open Source Security</span>
+                  <span class="cert-issuer">GitHub Certified</span>
+                </div>
+              </a>
+              <!-- Duplicated for seamless loop -->
+              <a href="#cert-zoom-2" class="cert-card">
+                <div class="cert-icon gcp">GCP</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Cloud Architecture Specialist</span>
+                  <span class="cert-issuer">Google Cloud</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-3" class="cert-card">
+                <div class="cert-icon react">⚛</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Advanced Frontend React</span>
+                  <span class="cert-issuer">Meta Professional</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-1" class="cert-card">
+                <div class="cert-icon aws">AWS</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Developer Associate</span>
+                  <span class="cert-issuer">Amazon Web Services</span>
+                </div>
+              </a>
+              <a href="#cert-zoom-5" class="cert-card">
+                <div class="cert-icon github">GH</div>
+                <div class="cert-meta">
+                  <span class="cert-title">Open Source Security</span>
+                  <span class="cert-issuer">GitHub Certified</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ======================================================================
+       80% FULL-PAGE INSPECTION MODALS (Pure CSS :target with Close)
+       ====================================================================== -->
+  <div id="cert-zoom-1" class="cert-zoom-overlay">
+    <a href="#certifications" class="zoom-backdrop" aria-label="Close Inspection"></a>
+    <div class="cert-zoom-modal">
+      <a href="#certifications" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Official Accreditation</div>
+      <h2 class="modal-title">AWS Certified Solutions Architect</h2>
+      <p class="modal-issuer">Issued by Amazon Web Services • Validation ID: AWS-78492048X</p>
+      <div class="modal-certificate-frame">
+        <div class="seal">★ AWS VERIFIED ★</div>
+        <div class="certificate-body">
+          <p class="cert-awarded">This credential validates technical expertise in designing available, cost-efficient, fault-tolerant, and scalable distributed systems on AWS.</p>
+          <div class="cert-specs">
+            <div><strong>Issue Date:</strong> 2024</div>
+            <div><strong>Status:</strong> Active &amp; Verified</div>
+            <div><strong>Proficiency:</strong> Cloud Infrastructure &amp; Security</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#certifications" class="back-link">← Back to Overview</a>
+        <a href="https://aws.amazon.com/certification/" target="_blank" rel="noopener noreferrer" class="verify-link">View Public Verification Link ↗</a>
+      </div>
     </div>
-  </main>
+  </div>
 
-  <!-- Bottom Navigation Section -->
+  <div id="cert-zoom-2" class="cert-zoom-overlay">
+    <a href="#certifications" class="zoom-backdrop" aria-label="Close Inspection"></a>
+    <div class="cert-zoom-modal">
+      <a href="#certifications" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Official Accreditation</div>
+      <h2 class="modal-title">Google Cloud Professional Cloud Developer</h2>
+      <p class="modal-issuer">Issued by Google Cloud • Validation ID: GCP-9920194A</p>
+      <div class="modal-certificate-frame">
+        <div class="seal">★ GOOGLE VERIFIED ★</div>
+        <div class="certificate-body">
+          <p class="cert-awarded">Validates comprehensive proficiency building scalable cloud-native applications with Google Kubernetes Engine, BigQuery, and serverless compute.</p>
+          <div class="cert-specs">
+            <div><strong>Issue Date:</strong> 2024</div>
+            <div><strong>Status:</strong> Active &amp; Verified</div>
+            <div><strong>Proficiency:</strong> Microservices &amp; CI/CD</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#certifications" class="back-link">← Back to Overview</a>
+        <a href="https://cloud.google.com/certification" target="_blank" rel="noopener noreferrer" class="verify-link">View Public Verification Link ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cert-zoom-3" class="cert-zoom-overlay">
+    <a href="#certifications" class="zoom-backdrop" aria-label="Close Inspection"></a>
+    <div class="cert-zoom-modal">
+      <a href="#certifications" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Official Accreditation</div>
+      <h2 class="modal-title">Meta Full-Stack Software Engineer</h2>
+      <p class="modal-issuer">Issued by Meta • Validation ID: META-4418290</p>
+      <div class="modal-certificate-frame">
+        <div class="seal">★ META VERIFIED ★</div>
+        <div class="certificate-body">
+          <p class="cert-awarded">Demonstrated mastery of React frontend architecture, responsive design, Node.js API development, and production database modeling.</p>
+          <div class="cert-specs">
+            <div><strong>Issue Date:</strong> 2024</div>
+            <div><strong>Status:</strong> Active &amp; Verified</div>
+            <div><strong>Proficiency:</strong> React, JavaScript, APIs</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#certifications" class="back-link">← Back to Overview</a>
+        <a href="https://www.coursera.org/professional-certificates/meta-front-end-developer" target="_blank" rel="noopener noreferrer" class="verify-link">View Public Verification Link ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cert-zoom-4" class="cert-zoom-overlay">
+    <a href="#certifications" class="zoom-backdrop" aria-label="Close Inspection"></a>
+    <div class="cert-zoom-modal">
+      <a href="#certifications" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Official Accreditation</div>
+      <h2 class="modal-title">TensorFlow Developer Certificate</h2>
+      <p class="modal-issuer">Issued by DeepLearning.AI • Validation ID: TF-1092837</p>
+      <div class="modal-certificate-frame">
+        <div class="seal">★ TF VERIFIED ★</div>
+        <div class="certificate-body">
+          <p class="cert-awarded">Proficiency in building neural networks, computer vision models, natural language processing pipelines, and time-series forecasting with TensorFlow.</p>
+          <div class="cert-specs">
+            <div><strong>Issue Date:</strong> 2023</div>
+            <div><strong>Status:</strong> Active &amp; Verified</div>
+            <div><strong>Proficiency:</strong> Machine Learning &amp; Neural Nets</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#certifications" class="back-link">← Back to Overview</a>
+        <a href="https://www.tensorflow.org/certificate" target="_blank" rel="noopener noreferrer" class="verify-link">View Public Verification Link ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cert-zoom-5" class="cert-zoom-overlay">
+    <a href="#certifications" class="zoom-backdrop" aria-label="Close Inspection"></a>
+    <div class="cert-zoom-modal">
+      <a href="#certifications" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Official Accreditation</div>
+      <h2 class="modal-title">GitHub Actions &amp; DevOps Certified</h2>
+      <p class="modal-issuer">Issued by GitHub • Validation ID: GH-5529104</p>
+      <div class="modal-certificate-frame">
+        <div class="seal">★ GITHUB VERIFIED ★</div>
+        <div class="certificate-body">
+          <p class="cert-awarded">Validates best practices in automated CI/CD workflows, custom Action authoring, package publishing, and continuous testing security.</p>
+          <div class="cert-specs">
+            <div><strong>Issue Date:</strong> 2024</div>
+            <div><strong>Status:</strong> Active &amp; Verified</div>
+            <div><strong>Proficiency:</strong> Automation &amp; DevOps</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#certifications" class="back-link">← Back to Overview</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="verify-link">View Public Verification Link ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cert-zoom-6" class="cert-zoom-overlay">
+    <a href="#certifications" class="zoom-backdrop" aria-label="Close Inspection"></a>
+    <div class="cert-zoom-modal">
+      <a href="#certifications" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Official Accreditation</div>
+      <h2 class="modal-title">Certified Kubernetes Administrator (CKA)</h2>
+      <p class="modal-issuer">Issued by Linux Foundation &amp; CNCF • Validation ID: CKA-8819230</p>
+      <div class="modal-certificate-frame">
+        <div class="seal">★ CNCF VERIFIED ★</div>
+        <div class="certificate-body">
+          <p class="cert-awarded">Core competencies in Kubernetes installation, cluster configuration, storage orchestrations, network policies, and troubleshooting.</p>
+          <div class="cert-specs">
+            <div><strong>Issue Date:</strong> 2024</div>
+            <div><strong>Status:</strong> Active &amp; Verified</div>
+            <div><strong>Proficiency:</strong> Container Orchestration</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#certifications" class="back-link">← Back to Overview</a>
+        <a href="https://www.cncf.io/certification/cka/" target="_blank" rel="noopener noreferrer" class="verify-link">View Public Verification Link ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cert-zoom-7" class="cert-zoom-overlay">
+    <a href="#certifications" class="zoom-backdrop" aria-label="Close Inspection"></a>
+    <div class="cert-zoom-modal">
+      <a href="#certifications" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Official Accreditation</div>
+      <h2 class="modal-title">HashiCorp Certified: Terraform Associate</h2>
+      <p class="modal-issuer">Issued by HashiCorp • Validation ID: HC-3391024</p>
+      <div class="modal-certificate-frame">
+        <div class="seal">★ HASHICORP VERIFIED ★</div>
+        <div class="certificate-body">
+          <p class="cert-awarded">Validates IaC (Infrastructure as Code) principles, Terraform Cloud modules, state management, and multi-provider deployments.</p>
+          <div class="cert-specs">
+            <div><strong>Issue Date:</strong> 2023</div>
+            <div><strong>Status:</strong> Active &amp; Verified</div>
+            <div><strong>Proficiency:</strong> Infrastructure as Code</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#certifications" class="back-link">← Back to Overview</a>
+        <a href="https://www.hashicorp.com/certification" target="_blank" rel="noopener noreferrer" class="verify-link">View Public Verification Link ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cert-zoom-8" class="cert-zoom-overlay">
+    <a href="#certifications" class="zoom-backdrop" aria-label="Close Inspection"></a>
+    <div class="cert-zoom-modal">
+      <a href="#certifications" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Official Accreditation</div>
+      <h2 class="modal-title">CS50x: Introduction to Computer Science</h2>
+      <p class="modal-issuer">Issued by Harvard University • Validation ID: CS50-0019284</p>
+      <div class="modal-certificate-frame">
+        <div class="seal">★ HARVARD VERIFIED ★</div>
+        <div class="certificate-body">
+          <p class="cert-awarded">Rigorous foundation in algorithmic thinking, computational problem-solving, memory structures, C, Python, SQL, and data structures.</p>
+          <div class="cert-specs">
+            <div><strong>Issue Date:</strong> 2023</div>
+            <div><strong>Status:</strong> Completed with Honors</div>
+            <div><strong>Proficiency:</strong> Algorithms &amp; Data Structures</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#certifications" class="back-link">← Back to Overview</a>
+        <a href="https://cs50.harvard.edu" target="_blank" rel="noopener noreferrer" class="verify-link">View Public Verification Link ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       BOTTOM NAVIGATION DOCK (Metallic Silver Bar with Transparent Ends)
+       ====================================================================== -->
   <footer class="bottom-dock">
-    <!-- Distinct White Divider Line -->
-    <div class="divider-line"></div>
+    
+    <!-- Metallic Chrome Silver Bar with Transparent Ends -->
+    <div class="metallic-silver-bar">
+      <div class="silver-reflection"></div>
+    </div>
 
-    <!-- Controls Sitting Below the Line -->
+    <!-- Controls Sitting Below the Metallic Bar -->
     <nav class="nav-shelf">
       <div class="button-group">
-        <button class="nav-btn" disabled>01 // Home</button>
-        <button class="nav-btn" disabled>02 // About</button>
+        <a href="#intro" class="nav-btn">01 // Intro</a>
+        <a href="#certifications" class="nav-btn">02 // Certifications</a>
         <button class="nav-btn" disabled>03 // Projects</button>
         <button class="nav-btn" disabled>04 // Skills</button>
         <button class="nav-btn" disabled>05 // Contact</button>
