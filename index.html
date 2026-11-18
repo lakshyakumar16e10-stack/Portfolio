@@ -3,20 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lakshya Kumar | Portfolio &amp; Technical Journey</title>
+  <title>Lakshya Kumar | 3D Interactive Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Background Fluid Ambient Canvas -->
-  <div class="fluid-stage" aria-hidden="true">
-    <div class="orb orb-blue"></div>
-    <div class="orb orb-purple"></div>
-    <div class="orb orb-blend"></div>
-    <div class="glass-canvas"></div>
+  <!-- ======================================================================
+       ENVIRONMENTAL 3D WORLD (Neon City Night & Grassy Hills Day)
+       ====================================================================== -->
+  <div id="env-container" class="env-container" aria-hidden="true">
+    <div id="env-3d-scene" class="env-3d-scene">
+      <div id="env-world" class="env-world">
+        
+        <!-- SIDE A: Futuristic Neon City (Night Mode - Default) -->
+        <div class="env-face env-night">
+          <div class="neon-sky"></div>
+          <!-- Layer 1: Distant Neon Horizon & Silhouettes -->
+          <div class="city-skyline-distant"></div>
+          <!-- Layer 2: Midground Neon Towers & Illuminated Spires -->
+          <div class="city-skyline-mid"></div>
+          <!-- Layer 3: Cyberpunk Grid Horizon & Atmospheric Neon Fog -->
+          <div class="city-grid-glow"></div>
+          <div class="atmospheric-neon-fog"></div>
+        </div>
+
+        <!-- SIDE B: Expansive Grassy Hills (Day Mode - 180° Rotated) -->
+        <div class="env-face env-day">
+          <div class="day-sky"></div>
+          <div class="sun-glow"></div>
+          <!-- Layer 1: Distant Mountain & Rolling Horizon -->
+          <div class="grassy-hills-distant"></div>
+          <!-- Layer 2: Lush Green Grassy Hills Midground -->
+          <div class="grassy-hills-mid"></div>
+          <!-- Layer 3: Morning Fog & Soft Mist -->
+          <div class="morning-mist"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dew & Condensation Droplets Canvas -->
+    <canvas id="dew-canvas" class="dew-canvas"></canvas>
+
+    <!-- Glass Surface Layer (Wet Condensation & Refractive Blur) -->
+    <div class="glass-surface-overlay"></div>
   </div>
 
-  <!-- Scroll-Snap Full-Page Container -->
+  <!-- ======================================================================
+       INTERACTIVE CELESTIAL TOGGLE (Moon in Upper-Left for Day/Night World)
+       ====================================================================== -->
+  <button id="celestial-toggle" class="celestial-toggle" aria-label="Switch to Day Mode" title="Click the Moon to rotate the world to Day">
+    <!-- Moon Body (Night Mode) -->
+    <div class="celestial-body moon-body">
+      <span class="crater c1"></span>
+      <span class="crater c2"></span>
+      <span class="crater c3"></span>
+      <span class="celestial-halo"></span>
+    </div>
+    <!-- Sun Body (Day Mode) -->
+    <div class="celestial-body sun-body">
+      <span class="sun-core"></span>
+      <span class="sun-flare flare-1"></span>
+      <span class="sun-flare flare-2"></span>
+      <span class="sun-flare flare-3"></span>
+      <span class="celestial-halo sun-halo"></span>
+    </div>
+  </button>
+
+  <!-- ======================================================================
+       SCROLL-SNAP FULL-PAGE CONTAINER
+       ====================================================================== -->
   <div class="snap-container">
 
     <!-- ======================================================================
@@ -52,16 +108,16 @@
 
           <div class="intro-actions">
             <a href="https://www.linkedin.com/in/lakshya-kumar-571213433/" target="_blank" rel="noopener noreferrer" class="cta-btn primary-cta">
-              LinkedIn ↗
+              LinkedIn Profile ↗
             </a>
             <a href="https://codeforces.com/profile/lakshyakumar1.6e10" target="_blank" rel="noopener noreferrer" class="cta-btn cf-cta">
-              Codeforces ↗
+              Codeforces Profile ↗
             </a>
             <a href="https://www.sololearn.com/profile/18253921/?ref=app" target="_blank" rel="noopener noreferrer" class="cta-btn sl-cta">
-              SoloLearn ↗
+              SoloLearn Profile ↗
             </a>
-            <a href="#milestones" class="cta-btn secondary-cta">
-              Rotating Milestones ↓
+            <a href="#conveyor" class="cta-btn secondary-cta">
+              Explore 3D Conveyor ↓
             </a>
           </div>
 
@@ -76,19 +132,19 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 2: ROTATING MILESTONES (3 Rotating Bands with 80% Zoom to TBA)
+         SECTION 2: 3D CONTINUOUS LOOP CONVEYOR (True Infinite Spline Motion)
          ====================================================================== -->
-    <section id="milestones" class="snap-section section-milestones">
-      <div class="section-inner cert-inner">
+    <section id="conveyor" class="snap-section section-conveyor">
+      <div class="section-inner conveyor-inner">
         
-        <div class="cert-header">
-          <span class="section-badge">Skill Milestones</span>
-          <h2 class="section-title">Certifications &amp; Accreditations</h2>
-          <p class="section-subtitle">Rotating milestone cards • Click any box to inspect in 80% full-page zoom</p>
+        <div class="section-header">
+          <span class="section-badge">Continuous 3D Motion</span>
+          <h2 class="section-title">Technology Ecosystem</h2>
+          <p class="section-subtitle">Seamless continuous 3D loop conveyor • Hover over boxes to pause motion</p>
 
           <!-- Top Featured Milestone Banner -->
-          <a href="#modal-tba-top" class="top-cert-banner">
-            <div class="banner-badge">★ Goal Milestone</div>
+          <a href="#modal-milestone-top" class="top-cert-banner">
+            <div class="banner-badge">★ Target Goal</div>
             <div class="banner-content">
               <strong>Upcoming Technical Credential // TBA</strong>
               <span>Target Accreditation in Progress • Click to inspect in 80% view ↗</span>
@@ -96,311 +152,124 @@
           </a>
         </div>
 
-        <!-- 3 Rotating Bands Carousel (Center of Section) -->
-        <div class="cert-carousel-wrapper">
-          
-          <!-- Band Row 1: Moves Left -->
-          <div class="cert-band row-left">
-            <div class="band-track">
-              <a href="#modal-tba-1" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Upcoming Credential</span>
-                  <span class="cert-issuer">Status: In Progress // TBA</span>
-                </div>
-              </a>
-              <a href="#modal-tba-2" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Web Development Goal</span>
-                  <span class="cert-issuer">Status: To Be Announced</span>
-                </div>
-              </a>
-              <a href="#modal-tba-3" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">C++ Fundamentals</span>
-                  <span class="cert-issuer">Status: Currently Learning</span>
-                </div>
-              </a>
-              <a href="#modal-tba-4" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Problem Solving Milestone</span>
-                  <span class="cert-issuer">Status: In Progress // TBA</span>
-                </div>
-              </a>
-              <!-- Duplicated for seamless continuous loop -->
-              <a href="#modal-tba-1" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Upcoming Credential</span>
-                  <span class="cert-issuer">Status: In Progress // TBA</span>
-                </div>
-              </a>
-              <a href="#modal-tba-2" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Web Development Goal</span>
-                  <span class="cert-issuer">Status: To Be Announced</span>
-                </div>
-              </a>
-              <a href="#modal-tba-3" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">C++ Fundamentals</span>
-                  <span class="cert-issuer">Status: Currently Learning</span>
-                </div>
-              </a>
-              <a href="#modal-tba-4" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Problem Solving Milestone</span>
-                  <span class="cert-issuer">Status: In Progress // TBA</span>
-                </div>
-              </a>
-            </div>
+        <!-- 3D Physical Loop Conveyor Stage -->
+        <div class="conveyor-3d-wrapper">
+          <div class="conveyor-occlusion-mask left-occlusion"></div>
+          <div id="conveyor-3d-stage" class="conveyor-3d-stage">
+            <!-- Continuous position-based conveyor boxes injected by script.js -->
           </div>
-
-          <!-- Band Row 2: Moves Right -->
-          <div class="cert-band row-right">
-            <div class="band-track">
-              <a href="#modal-tba-5" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">SQL Query Certification</span>
-                  <span class="cert-issuer">Status: To Be Announced</span>
-                </div>
-              </a>
-              <a href="#modal-tba-6" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Python Core Verification</span>
-                  <span class="cert-issuer">Status: In Progress // TBA</span>
-                </div>
-              </a>
-              <a href="#modal-tba-7" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Competitive Coding Rank</span>
-                  <span class="cert-issuer">Status: Active Ladder // TBA</span>
-                </div>
-              </a>
-              <a href="#modal-tba-8" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">SoloLearn Track Completion</span>
-                  <span class="cert-issuer">Status: In Progress</span>
-                </div>
-              </a>
-              <!-- Duplicated for seamless loop -->
-              <a href="#modal-tba-5" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">SQL Query Certification</span>
-                  <span class="cert-issuer">Status: To Be Announced</span>
-                </div>
-              </a>
-              <a href="#modal-tba-6" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Python Core Verification</span>
-                  <span class="cert-issuer">Status: In Progress // TBA</span>
-                </div>
-              </a>
-              <a href="#modal-tba-7" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Competitive Coding Rank</span>
-                  <span class="cert-issuer">Status: Active Ladder // TBA</span>
-                </div>
-              </a>
-              <a href="#modal-tba-8" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">SoloLearn Track Completion</span>
-                  <span class="cert-issuer">Status: In Progress</span>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- Band Row 3: Moves Left -->
-          <div class="cert-band row-left">
-            <div class="band-track">
-              <a href="#modal-tba-2" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Prompt Engineering Spec</span>
-                  <span class="cert-issuer">Status: Practice &amp; Build</span>
-                </div>
-              </a>
-              <a href="#modal-tba-3" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Frontend Mastery Goal</span>
-                  <span class="cert-issuer">Status: To Be Announced</span>
-                </div>
-              </a>
-              <a href="#modal-tba-1" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Algorithms Div. Ladder</span>
-                  <span class="cert-issuer">Status: Continuous Contest</span>
-                </div>
-              </a>
-              <a href="#modal-tba-5" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Software Engineering Track</span>
-                  <span class="cert-issuer">Status: In Progress // TBA</span>
-                </div>
-              </a>
-              <!-- Duplicated for seamless loop -->
-              <a href="#modal-tba-2" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Prompt Engineering Spec</span>
-                  <span class="cert-issuer">Status: Practice &amp; Build</span>
-                </div>
-              </a>
-              <a href="#modal-tba-3" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Frontend Mastery Goal</span>
-                  <span class="cert-issuer">Status: To Be Announced</span>
-                </div>
-              </a>
-              <a href="#modal-tba-1" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Algorithms Div. Ladder</span>
-                  <span class="cert-issuer">Status: Continuous Contest</span>
-                </div>
-              </a>
-              <a href="#modal-tba-5" class="cert-card">
-                <div class="cert-icon tba-icon">TBA</div>
-                <div class="cert-meta">
-                  <span class="cert-title">Software Engineering Track</span>
-                  <span class="cert-issuer">Status: In Progress // TBA</span>
-                </div>
-              </a>
-            </div>
-          </div>
-
+          <div class="conveyor-occlusion-mask right-occlusion"></div>
         </div>
+
       </div>
     </section>
 
     <!-- ======================================================================
-         SECTION 3: TECHNICAL CAPABILITIES MATRIX (With C++ Beginning)
+         SECTION 3: INTERACTIVE TECHNICAL CAPABILITIES (Wheel + Detail Panel)
          ====================================================================== -->
     <section id="skills" class="snap-section section-skills">
-      <div class="section-inner skills-inner">
+      <div class="section-inner skills-split-inner">
+        
         <div class="section-header">
-          <span class="section-badge">Skillset</span>
-          <h2 class="section-title">Technical Capabilities</h2>
-          <p class="section-subtitle">Real languages and tools I actively practice, including newly started C++</p>
+          <span class="section-badge">Interactive Capabilities</span>
+          <h2 class="section-title">Technical Skillset &amp; Experience</h2>
+          <p class="section-subtitle">Dedicated detail panel on the left with a smooth interactive selection wheel</p>
         </div>
 
-        <div class="skills-grid">
+        <div class="skills-split-layout">
           
-          <!-- Skill 1: C++ (Beginning) -->
-          <div class="skill-card highlight-card">
-            <div class="skill-header">
-              <span class="skill-icon cpp-icon">C++</span>
-              <div>
-                <h3 class="skill-name">C++</h3>
-                <span class="skill-level active-focus">Beginning • Active Focus</span>
-              </div>
-            </div>
-            <p class="skill-detail">
-              Currently learning core C++ syntax, basic memory management, standard input/output, and applying it to competitive programming on Codeforces.
-            </p>
+          <!-- LEFT PANEL: Dynamic Detail View (Default: Personal Overview) -->
+          <div id="skill-detail-display" class="skills-detail-panel glass-card">
+            <!-- Dynamically rendered by script.js with overview & animated progress bars -->
           </div>
 
-          <!-- Skill 2: HTML5 -->
-          <div class="skill-card">
-            <div class="skill-header">
-              <span class="skill-icon html-icon">&lt;/&gt;</span>
-              <div>
-                <h3 class="skill-name">HTML5</h3>
-                <span class="skill-level">Semantic Web</span>
-              </div>
+          <!-- RIGHT COLUMN: Interactive Selection Wheel -->
+          <div class="skills-wheel-wrapper glass-card">
+            <div class="wheel-header-row">
+              <span class="wheel-title">Technical Capabilities Wheel</span>
+              <span class="wheel-sub">Scroll or click to inspect details</span>
             </div>
-            <p class="skill-detail">
-              Structuring accessible, clean, and standards-compliant web pages using semantic HTML tags and structured layouts.
-            </p>
-          </div>
 
-          <!-- Skill 3: CSS3 -->
-          <div class="skill-card">
-            <div class="skill-header">
-              <span class="skill-icon css-icon">#</span>
-              <div>
-                <h3 class="skill-name">CSS3</h3>
-                <span class="skill-level">Modern Styling &amp; UI</span>
+            <div id="skills-wheel-list" class="skills-wheel-list" tabindex="0" role="listbox" aria-label="Technical skills selection list">
+              
+              <!-- Item 1: C++ -->
+              <div class="wheel-item" data-skill="cpp" role="option" tabindex="0">
+                <span class="wheel-bullet"></span>
+                <span class="wheel-icon cpp-icon">C++</span>
+                <div class="wheel-item-meta">
+                  <strong class="wheel-tech-name">C++</strong>
+                  <span class="wheel-tech-sub highlight-tag">Beginning • Active Focus</span>
+                </div>
+                <span class="wheel-chevron">›</span>
               </div>
-            </div>
-            <p class="skill-detail">
-              Creating glassmorphic responsive designs, Flexbox &amp; Grid layouts, 3D CSS keyframe animations, and scroll-locking experiences.
-            </p>
-          </div>
 
-          <!-- Skill 4: JavaScript (Basics) -->
-          <div class="skill-card">
-            <div class="skill-header">
-              <span class="skill-icon js-icon">JS</span>
-              <div>
-                <h3 class="skill-name">JavaScript</h3>
-                <span class="skill-level">Fundamentals &amp; DOM</span>
+              <!-- Item 2: HTML5 -->
+              <div class="wheel-item" data-skill="html5" role="option" tabindex="0">
+                <span class="wheel-bullet"></span>
+                <span class="wheel-icon html-icon">&lt;/&gt;</span>
+                <div class="wheel-item-meta">
+                  <strong class="wheel-tech-name">HTML5</strong>
+                  <span class="wheel-tech-sub">Semantic Web &amp; Forms</span>
+                </div>
+                <span class="wheel-chevron">›</span>
               </div>
-            </div>
-            <p class="skill-detail">
-              Core JavaScript fundamentals: variables, conditionals, loops, functions, array methods, and basic DOM manipulation.
-            </p>
-          </div>
 
-          <!-- Skill 5: Python (Basics) -->
-          <div class="skill-card">
-            <div class="skill-header">
-              <span class="skill-icon py-icon">🐍</span>
-              <div>
-                <h3 class="skill-name">Python</h3>
-                <span class="skill-level">Core Basics &amp; Scripting</span>
+              <!-- Item 3: CSS3 -->
+              <div class="wheel-item" data-skill="css3" role="option" tabindex="0">
+                <span class="wheel-bullet"></span>
+                <span class="wheel-icon css-icon">#</span>
+                <div class="wheel-item-meta">
+                  <strong class="wheel-tech-name">CSS3</strong>
+                  <span class="wheel-tech-sub">Glassmorphism &amp; Animations</span>
+                </div>
+                <span class="wheel-chevron">›</span>
               </div>
-            </div>
-            <p class="skill-detail">
-              Scripting, basic data structures, problem-solving logic, and implementing algorithmic solutions for competitive coding.
-            </p>
-          </div>
 
-          <!-- Skill 6: SQL -->
-          <div class="skill-card">
-            <div class="skill-header">
-              <span class="skill-icon sql-icon">🗄</span>
-              <div>
-                <h3 class="skill-name">SQL</h3>
-                <span class="skill-level">Relational Database Queries</span>
+              <!-- Item 4: JavaScript -->
+              <div class="wheel-item" data-skill="js" role="option" tabindex="0">
+                <span class="wheel-bullet"></span>
+                <span class="wheel-icon js-icon">JS</span>
+                <div class="wheel-item-meta">
+                  <strong class="wheel-tech-name">JavaScript</strong>
+                  <span class="wheel-tech-sub">DOM Manipulation &amp; Logic</span>
+                </div>
+                <span class="wheel-chevron">›</span>
               </div>
-            </div>
-            <p class="skill-detail">
-              Querying databases with `SELECT`, filtering with `WHERE`, sorting with `ORDER BY`, aggregate functions, and practicing joins.
-            </p>
-          </div>
 
-          <!-- Skill 7: Prompt Engineering -->
-          <div class="skill-card">
-            <div class="skill-header">
-              <span class="skill-icon prompt-icon">⚡</span>
-              <div>
-                <h3 class="skill-name">Prompt Engineering</h3>
-                <span class="skill-level">AI Workflows</span>
+              <!-- Item 5: Python -->
+              <div class="wheel-item" data-skill="python" role="option" tabindex="0">
+                <span class="wheel-bullet"></span>
+                <span class="wheel-icon py-icon">🐍</span>
+                <div class="wheel-item-meta">
+                  <strong class="wheel-tech-name">Python</strong>
+                  <span class="wheel-tech-sub">Scripting &amp; Algorithms</span>
+                </div>
+                <span class="wheel-chevron">›</span>
               </div>
+
+              <!-- Item 6: SQL -->
+              <div class="wheel-item" data-skill="sql" role="option" tabindex="0">
+                <span class="wheel-bullet"></span>
+                <span class="wheel-icon sql-icon">🗄</span>
+                <div class="wheel-item-meta">
+                  <strong class="wheel-tech-name">SQL</strong>
+                  <span class="wheel-tech-sub">Relational Queries &amp; JOINs</span>
+                </div>
+                <span class="wheel-chevron">›</span>
+              </div>
+
+              <!-- Item 7: Prompt Engineering -->
+              <div class="wheel-item" data-skill="prompting" role="option" tabindex="0">
+                <span class="wheel-bullet"></span>
+                <span class="wheel-icon prompt-icon">⚡</span>
+                <div class="wheel-item-meta">
+                  <strong class="wheel-tech-name">Prompt Engineering</strong>
+                  <span class="wheel-tech-sub">LLM Workflows &amp; Prototyping</span>
+                </div>
+                <span class="wheel-chevron">›</span>
+              </div>
+
             </div>
-            <p class="skill-detail">
-              Formulating structured prompts, context framing, zero-shot and few-shot formatting, and applying LLMs to accelerate coding workflows.
-            </p>
           </div>
 
         </div>
@@ -473,39 +342,41 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 5: PROJECTS (From Repositories & Practice Code)
+         SECTION 5: PROJECTS & GITHUB INTEGRATION
          ====================================================================== -->
     <section id="projects" class="snap-section section-projects">
       <div class="section-inner projects-inner">
         <div class="section-header">
-          <span class="section-badge">Showcase</span>
+          <span class="section-badge">GitHub Integration</span>
           <h2 class="section-title">Projects &amp; Code Repositories</h2>
-          <p class="section-subtitle">Real code implementations across web development, algorithmic practice, and database queries</p>
+          <p class="section-subtitle">Real implementations connected to official GitHub repository: <strong>lakshyakumar16e10-stack</strong></p>
         </div>
 
         <div class="projects-grid">
           
-          <!-- Project 1 -->
+          <!-- Project 1: Portfolio -->
           <article class="project-card">
             <div class="project-top">
-              <span class="project-tag">Frontend &amp; UI</span>
+              <span class="project-tag">Frontend &amp; 3D</span>
               <span class="project-status">Live</span>
             </div>
-            <h3 class="project-heading">Interactive Fluid Glass Portfolio</h3>
+            <h3 class="project-heading">Portfolio (3D Continuous Experience)</h3>
             <p class="project-summary">
-              Modern single-page portfolio with pure CSS 3D floating ambient orbs, scroll-snap sensitivity locking, metallic bottom navigation dock, and responsive design.
+              Interactive 3D portfolio featuring continuous loop spline motion, 180° day/night environmental world rotation, dewy glass condensation, and interactive capabilities wheel.
             </p>
             <div class="tech-stack-pills">
               <span>HTML5</span>
               <span>CSS3</span>
+              <span>JavaScript</span>
               <span>Git</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/lakshyakumar16e10-stack/Portfolio" target="_blank" rel="noopener noreferrer" class="link-btn code-link">Official GitHub Repo ↗</a>
+              <a href="https://github.com/lakshyakumar16e10-stack/Portfolio" target="_blank" rel="noopener noreferrer" class="link-btn code-link">Official Repository ↗</a>
+              <a href="#intro" class="link-btn live-link">Live View ↗</a>
             </div>
           </article>
 
-          <!-- Project 2 -->
+          <!-- Project 2: Algorithm Practice -->
           <article class="project-card">
             <div class="project-top">
               <span class="project-tag">Problem Solving &amp; Scripts</span>
@@ -513,7 +384,7 @@
             </div>
             <h3 class="project-heading">Algorithm Practice &amp; Solutions</h3>
             <p class="project-summary">
-              Curated repository of solutions to Codeforces and SoloLearn problem sets, exploring computational logic, mathematical puzzles, and basic C++ implementations.
+              Curated repository of solutions to Codeforces problem sets (Handle: lakshyakumar1.6e10, Rating: 475) and SoloLearn exercises, exploring computational logic and C++ implementations.
             </p>
             <div class="tech-stack-pills">
               <span>Python</span>
@@ -522,10 +393,11 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/lakshyakumar16e10-stack/Portfolio" target="_blank" rel="noopener noreferrer" class="link-btn code-link">Repository Work ↗</a>
+              <a href="https://codeforces.com/profile/lakshyakumar1.6e10" target="_blank" rel="noopener noreferrer" class="link-btn live-link">Codeforces Profile ↗</a>
             </div>
           </article>
 
-          <!-- Project 3 -->
+          <!-- Project 3: SQL Suite -->
           <article class="project-card">
             <div class="project-top">
               <span class="project-tag">Database &amp; Queries</span>
@@ -542,6 +414,7 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/lakshyakumar16e10-stack/Portfolio" target="_blank" rel="noopener noreferrer" class="link-btn code-link">Repository Work ↗</a>
+              <a href="https://www.sololearn.com/profile/18253921/?ref=app" target="_blank" rel="noopener noreferrer" class="link-btn live-link">SoloLearn Progress ↗</a>
             </div>
           </article>
 
@@ -550,7 +423,7 @@
     </section>
 
     <!-- ======================================================================
-         SECTION 6: CONTACT & CONNECT
+         SECTION 6: CONTACT & REACH OUT
          ====================================================================== -->
     <section id="contact" class="snap-section section-contact">
       <div class="section-inner contact-inner">
@@ -563,7 +436,7 @@
         <div class="contact-box glass-card">
           <div class="contact-left">
             <h3 class="contact-heading">Direct Channels</h3>
-            <p class="contact-sub">Connect directly via email or through any of my active profiles.</p>
+            <p class="contact-sub">Connect directly via email or through any of my verified professional profiles.</p>
 
             <div class="contact-links-list">
               <a href="mailto:lakshyakumar1.6e10@gmail.com" class="channel-link">
@@ -628,7 +501,7 @@
         </div>
 
         <p class="copyright-text">
-          Designed &amp; Developed by <strong>Lakshya Kumar</strong> • Pure Semantic HTML &amp; CSS
+          Designed &amp; Developed by <strong>Lakshya Kumar</strong> • 3D Motion &amp; Clean Glassmorphism
         </p>
       </div>
     </section>
@@ -636,13 +509,13 @@
   </div>
 
   <!-- ======================================================================
-       80% FULL-PAGE ZOOM INSPECTION MODALS (Pure CSS :target to TBA)
+       80% FULL-PAGE ZOOM INSPECTION MODAL (TBA Milestone)
        ====================================================================== -->
-  <div id="modal-tba-top" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
+  <div id="modal-milestone-top" class="cert-zoom-overlay">
+    <a href="#conveyor" class="zoom-backdrop" aria-label="Close Inspection"></a>
     <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone In Progress</div>
+      <a href="#conveyor" class="close-zoom-btn" title="Close Inspection">&times;</a>
+      <div class="modal-badge">Target Technical Goal</div>
       <h2 class="modal-title">Upcoming Credential: TBA</h2>
       <p class="modal-issuer">Target Technical Accreditation • Status: In Progress</p>
       <div class="modal-certificate-frame">
@@ -660,209 +533,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
-        <a href="#contact" class="verify-link">Connect About Progress ↗</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Generic Modals for Rotating TBA Cards -->
-  <div id="modal-tba-1" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
-    <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone Goal</div>
-      <h2 class="modal-title">Upcoming Certification: TBA</h2>
-      <p class="modal-issuer">Verification Status: In Progress</p>
-      <div class="modal-certificate-frame">
-        <div class="seal">★ FUTURE CERTIFICATE // TBA ★</div>
-        <div class="certificate-body">
-          <p class="cert-awarded">
-            Active learning and preparation are currently underway. The verified credential details will be updated here.
-          </p>
-          <div class="cert-specs">
-            <div><strong>Status:</strong> In Progress</div>
-            <div><strong>Target Area:</strong> Software &amp; Algorithms</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-tba-2" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
-    <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone Goal</div>
-      <h2 class="modal-title">Web Development Accreditation: TBA</h2>
-      <p class="modal-issuer">Verification Status: To Be Announced</p>
-      <div class="modal-certificate-frame">
-        <div class="seal">★ WEB MILESTONE // TBA ★</div>
-        <div class="certificate-body">
-          <p class="cert-awarded">
-            Focused on advanced HTML5, modern CSS3 UI engineering, and JavaScript interactive systems.
-          </p>
-          <div class="cert-specs">
-            <div><strong>Status:</strong> Hands-On Projects</div>
-            <div><strong>Target Area:</strong> Modern Web Design</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-tba-3" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
-    <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone Goal</div>
-      <h2 class="modal-title">C++ Foundation Milestone: TBA</h2>
-      <p class="modal-issuer">Verification Status: Currently Learning</p>
-      <div class="modal-certificate-frame">
-        <div class="seal">★ C++ MILESTONE // TBA ★</div>
-        <div class="certificate-body">
-          <p class="cert-awarded">
-            Mastering standard syntax, control flow, functions, memory references, and basic data structures in C++.
-          </p>
-          <div class="cert-specs">
-            <div><strong>Status:</strong> Beginning C++</div>
-            <div><strong>Target Area:</strong> Core Languages</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-tba-4" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
-    <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone Goal</div>
-      <h2 class="modal-title">Problem Solving Milestone: TBA</h2>
-      <p class="modal-issuer">Verification Status: Active Practice</p>
-      <div class="modal-certificate-frame">
-        <div class="seal">★ ALGORITHM MILESTONE // TBA ★</div>
-        <div class="certificate-body">
-          <p class="cert-awarded">
-            Building rating and solving problems consistently across Codeforces and SoloLearn.
-          </p>
-          <div class="cert-specs">
-            <div><strong>Status:</strong> Active Contestant</div>
-            <div><strong>Current Rating:</strong> 475</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-tba-5" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
-    <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone Goal</div>
-      <h2 class="modal-title">SQL &amp; Data Querying: TBA</h2>
-      <p class="modal-issuer">Verification Status: To Be Announced</p>
-      <div class="modal-certificate-frame">
-        <div class="seal">★ SQL MILESTONE // TBA ★</div>
-        <div class="certificate-body">
-          <p class="cert-awarded">
-            Practicing relational schema queries, multi-table joins, conditional aggregations, and data filtering.
-          </p>
-          <div class="cert-specs">
-            <div><strong>Status:</strong> Hands-On Practice</div>
-            <div><strong>Target Area:</strong> Relational Databases</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-tba-6" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
-    <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone Goal</div>
-      <h2 class="modal-title">Python Core Verification: TBA</h2>
-      <p class="modal-issuer">Verification Status: In Progress</p>
-      <div class="modal-certificate-frame">
-        <div class="seal">★ PYTHON MILESTONE // TBA ★</div>
-        <div class="certificate-body">
-          <p class="cert-awarded">
-            Solidifying Python logic building, scripting fundamentals, and competitive programming tools.
-          </p>
-          <div class="cert-specs">
-            <div><strong>Status:</strong> In Progress</div>
-            <div><strong>Target Area:</strong> Python Basics</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-tba-7" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
-    <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone Goal</div>
-      <h2 class="modal-title">Competitive Ladder Rank: TBA</h2>
-      <p class="modal-issuer">Verification Status: Continuous Contests</p>
-      <div class="modal-certificate-frame">
-        <div class="seal">★ RATING GOAL // TBA ★</div>
-        <div class="certificate-body">
-          <p class="cert-awarded">
-            Steadily advancing through Div. 3 and Div. 4 rounds on Codeforces.
-          </p>
-          <div class="cert-specs">
-            <div><strong>Platform:</strong> Codeforces</div>
-            <div><strong>Target:</strong> Upward Rating Progression</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-tba-8" class="cert-zoom-overlay">
-    <a href="#milestones" class="zoom-backdrop" aria-label="Close Inspection"></a>
-    <div class="cert-zoom-modal">
-      <a href="#milestones" class="close-zoom-btn" title="Close Inspection">&times;</a>
-      <div class="modal-badge">Milestone Goal</div>
-      <h2 class="modal-title">SoloLearn Track Completion: TBA</h2>
-      <p class="modal-issuer">Verification Status: Active Practice</p>
-      <div class="modal-certificate-frame">
-        <div class="seal">★ SOLOLEARN TRACK // TBA ★</div>
-        <div class="certificate-body">
-          <p class="cert-awarded">
-            Reinforcing syntax patterns and completing learning courses on SoloLearn profile 18253921.
-          </p>
-          <div class="cert-specs">
-            <div><strong>Platform:</strong> SoloLearn</div>
-            <div><strong>Target:</strong> Course Certifications</div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#milestones" class="back-link">← Back to Overview</a>
+        <a href="#conveyor" class="back-link">← Back to Conveyor</a>
+        <a href="#skills" class="verify-link">Inspect Capabilities Wheel ↗</a>
       </div>
     </div>
   </div>
@@ -881,8 +553,8 @@
     <nav class="nav-shelf">
       <div class="button-group">
         <a href="#intro" class="nav-btn">01 // Intro</a>
-        <a href="#milestones" class="nav-btn">02 // Milestones (TBA)</a>
-        <a href="#skills" class="nav-btn">03 // Skills</a>
+        <a href="#conveyor" class="nav-btn">02 // 3D Conveyor</a>
+        <a href="#skills" class="nav-btn">03 // Capabilities</a>
         <a href="#platforms" class="nav-btn">04 // Platforms</a>
         <a href="#projects" class="nav-btn">05 // Projects</a>
         <a href="#contact" class="nav-btn">06 // Contact</a>
@@ -890,5 +562,7 @@
     </nav>
   </footer>
 
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
